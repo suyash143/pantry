@@ -1,7 +1,7 @@
 {% extends 'index_store.html' %}
 {% load static %}
 {% block content %}
- <div class="banner_7">
+ <div class="banner_7 mainsec">
     <div class="container-fluid">
       <div class="row text-center">
         <div class="col-md-12">
@@ -23,27 +23,33 @@
 
   <section class="px-5 py-5">
     <div class="container-fluid">
-      <div class="row">
+      <div class="row">      
         <div class="col-md-6">
           <img src="images/product.jpg" alt="product" class="img-fluid card-block">
         </div>
         <div class="col-md-6">
           <h2>Product Name</h2>
-          <span class="badge">5.0</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> &nbsp<span>100 Ratings</span> &nbsp<span>10 Solds</span>
-          <h3>Rs 50</h3>
-          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.</p>
+          <span class="badge py-2">5.0</span> <span class="material-icons py-2">star_outline</span> <span class="material-icons py-2">star_outline</span> <span class="material-icons py-2">star_outline</span> <span class="material-icons py-2">star_outline</span> <span class="material-icons py-2">star_outline</span> &nbsp<span class="py-2">100 Ratings</span> &nbsp<span class="py-2">10 Solds</span>
+          <h3 class="py-2">Rs 50</h3>
+          <p class="py-2">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.</p>
 
-          <select name="">
+          <select name="" class="my-2 p-1">
             <option value="1">1</option>
             <option value="1">1</option>
             <option value="1">1</option>
             <option value="1">1</option>
           </select>
+          <form class="productnumber py-3">
+            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><i class="fa fa-minus"></i></div>
+            <input type="number" id="number" value="0" />
+            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><i class="fa fa-plus"></i></div>
+          </form>
+
+          <button class="cartbtn">Add to cart</button>
         </div>
       </div>
     </div>
-  </section>
-
+  </section> 
 
   <section class="px-5 suggest py-5">
     <div class="container-fluid">
