@@ -1,0 +1,213 @@
+{% extends 'index_store.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="banner_2">
+    <div class="container-fluid">  
+      <div class="row text-center">
+        <div class="col-md-12">
+          <ul class="nav d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop</a>
+            </li>
+          </ul>
+          <p>Order</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="px-5 py-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="shopbtn">
+            <button class="btn fbtn active" onclick="filterSelection('all')">All</button>
+            <button class="btn fbtn" onclick="filterSelection('category')">category</button>
+            <!-- <button class="btn" onclick="filterSelection('category')">category</button>
+            <button class="btn" onclick="filterSelection('category')">category</button>
+            <button class="btn" onclick="filterSelection('category')">category</button> -->
+          </div>
+        </div>
+      </div>
+      <div class="row py-5">
+        <div class="col-md-3 every info my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row py-5">
+        <div class="col-md-3 every info category my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info category my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info category my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 every info category my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-0">
+              <img src="images/product.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-1">
+              <p>FoodName</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <p class="price">Rs 100</p>
+              <div class="icons py-2">
+                <i class="fa fa-eye"></i>
+                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="px-5 suggest py-5">
+    <div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-md-6">
+          <h6>Request to post blog</h6>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod tempor incididunt.</p>
+        </div>
+        <div class="col-md-6">
+          <form action="" class="suggestform">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="">
+              <div class="input-group-append">
+                <span class="input-group-text px-4">Go</span>
+              </div>
+            </div>
+          </form>
+        </div>    
+      </div>
+    </div>
+  </section>
+
+ {% endblock content %}

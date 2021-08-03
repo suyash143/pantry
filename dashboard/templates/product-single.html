@@ -1,0 +1,70 @@
+{% extends 'index_store.html' %}
+{% load static %}
+{% block content %}
+ <div class="banner_7">
+    <div class="container-fluid">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <ul class="nav d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Singe-product</a>
+            </li>
+          </ul>
+          <p>single-product</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="px-5 py-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/product.jpg" alt="product" class="img-fluid card-block">
+        </div>
+        <div class="col-md-6">
+          <h2>Product Name</h2>
+          <span class="badge">5.0</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> <span class="material-icons">star_outline</span> &nbsp<span>100 Ratings</span> &nbsp<span>10 Solds</span>
+          <h3>Rs 50</h3>
+          <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.</p>
+
+          <select name="">
+            <option value="1">1</option>
+            <option value="1">1</option>
+            <option value="1">1</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="px-5 suggest py-5">
+    <div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-md-6">
+          <h6>Request to post blog</h6>
+          <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod tempor incididunt.</p>
+        </div>
+        <div class="col-md-6">
+          <form action="" class="suggestform">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="">
+              <div class="input-group-append">
+                <span class="input-group-text px-4">Go</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}
