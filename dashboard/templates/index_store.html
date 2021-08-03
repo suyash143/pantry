@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+{%load static%}
+<head>
+	  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="We're defining brands on social media">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantry - Home</title>
+    <link rel="shortcut icon" type="image/png" href="https://creativefuel.io/assets/img/image20.png"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'store/assets/index.css' %}">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<!--
+	background color white
+ 	text and bg of brown  #5F4536
+
+	twxt on brown >>light brown #896D52
+	golden #D8993A
+
+	combination with gold #E6E6E6-->
+<body>
+
+
+<div class="main">
+
+
+  <!-- navigation -->
+
+  <nav class="navbar navbar-expand-md px-0">
+    <a class="navbar-brand px-5" href="#">Navbar</a>
+    <button class="navbar-toggler px-5" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="material-icons">more_vert</span>
+    </button>
+    <div class="collapse navbar-collapse px-5 py-3" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="shop.html">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="cart.html"><i class="fa fa-shopping-cart"></i> [0]</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+{% block content %}
+
+
+            {% endblock content %}
+
+
+
+  <section class="text-center up">
+    <div class="container-fluid">
+      <button><i class="fa fa-angle-up"></i></button>
+    </div>
+  </section>
+
+  <footer class="px-5 py-5">
+    <div class="container-fluid">
+      <div class="row py-3">
+        <div class="col-md-3">
+          <h6>Pantry</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis</p>
+        </div>
+        <div class="col-md-2">
+          <h6>Menu</h6>
+          <ul>
+            <li><a href="#" title="">Home</a></li>
+            <li><a href="#" title="">Shop</a></li>
+            <li><a href="#" title="">About</a></li>
+            <li><a href="#" title="">Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>Help</h6>
+          <ul>
+            <li><a href="#" title="">Shipping Information</a></li>
+            <li><a href="#" title="">Returns & Exchange</a></li>
+            <li><a href="#" title="">Terms & Conditions</a></li>
+            <li><a href="#" title="">Privacy Policy</a></li>
+            <li><a href="#" title="">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h6>Have a Questions?</h6>
+          <p><span class="material-icons">phone</span> 000000000</p>
+          <p><span class="material-icons">markunread</span> pantry@gmail.com</p>
+        </div>
+        <div class="col-md-1">
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-whatsapp"></i>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12 pt-3">
+          <p>Copyright ©2021 All rights reserved | This template is made with <i class="material-icons">favorite</i> by Creativefuel</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
