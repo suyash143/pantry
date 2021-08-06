@@ -9,7 +9,6 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200)
     coin=models.DecimalField(max_digits=5,blank=True,null=True,default=0, decimal_places=1)
-    
 
     def __str__(self):
         return self.name
@@ -18,7 +17,21 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    '''image = models.ImageField(null=True, blank=True)
+    description=models.TextField(null=True,blank=True)
+    image = models.ImageField(upload_to='menu_item',null=True, blank=True)
+    category=models.ManyToManyField('Category',related_name='item')
+    today_special=models.BooleanField(blank=True,default=False)
+
+    def save(self, *args, **kwargs):
+        if self.today_special:
+            try:
+                temp = Product.objects.get(today_special=True)
+                if self != temp:
+                    temp.today_special = False
+                    temp.save()
+            except Product.DoesNotExist:
+                pass
+        super(Product, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
@@ -30,12 +43,21 @@ class Product(models.Model):
         except:
             url = ''
         return url
-'''
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200, null=True, blank=True)
+    image = models.ImageField(upload_to='menu_item', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
+    price=models.DecimalField(max_digits=7, decimal_places=2)
     transaction_id = models.CharField(max_length=100, null=True)
 
     def __str__(self):
@@ -66,6 +88,4 @@ class OrderItem(models.Model):
         return total
     
     
-class Category(models.Model):
-    product=models.ManyToManyField(Product,blank=True,null=True)
-    name=models.CharField(max_length=200,null=True,blank=True)
+
