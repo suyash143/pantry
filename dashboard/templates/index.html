@@ -68,10 +68,12 @@
     <div class="container-fluid">
       <div class="row">
           {% for item in category %}
-        <div class="col-md-4 cat1 my-3">
-          <img src="{{ item.image.url }}" alt="cart1" class="img-fluid">
-          <div class="text-center px-5 pt-2">
-            <p><a href="{%url 'products' name=item.name%}">{{ item.name }}</a></p>
+        <div class="col-md-4 cat1 my-3" style="display: flex;width: 100%;">
+          <div style="flex: 1;">
+              <img src="{{ item.image.url }}" alt="cart1" class="img-fluid">
+              <div class="text-center px-5 pt-2">
+                <p><a href="{%url 'products' name=item.name%}">{{ item.name }}</a></p>
+              </div>
           </div>
         </div>
           {% endfor  %}
@@ -99,10 +101,12 @@
       </div>
       <div class="row">
           {% for item in product %}
-        <div class="col-md-3 my-3 food1">
-          <img src="{{ item.image.url }}" alt="food1" class="img-fluid">
-          <div class="text-center px-2 pt-2">
-            <p>{{ item.name }}</p>
+        <div class="col-md-3 my-3 food1" style="display: flex;width: 100%;">
+          <div style="flex: 1;">
+            <img src="{{ item.image.url }}" alt="food1" class="img-fluid">
+            <div class="text-center px-2 pt-2">
+              <p>{{ item.name }}</p>
+            </div>
           </div>
         </div>
           {% endfor %}
@@ -116,9 +120,12 @@
   <!-- deal -->
   <section>
     <div class="container-fluid deal" style="background-image: url('{{ today_special.image.url }}');">
+      <div class="overlay">
+        
+      </div>
       <div class="row d-flex justify-content-end px-5">
         <div class="col-md-6 pull-left text-left">
-
+          <h6>Best price for today</h6>
           <h1>Today's Special</h1>
           <p>{{ today_special.description }}</p>
 

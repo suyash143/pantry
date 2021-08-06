@@ -33,36 +33,40 @@ body {
 
 /*indexpage*/
 nav {
-	background-color: #5F4536;
+	background-color: #fff;
 	margin: 0;
 }
 
 nav ul li a {
 	text-decoration: none;
-	color: #E6E6E6;
+	color: #E0475B;
 }
 
 nav ul li a:hover {
 	text-decoration: none;
 
-	color: #E6E6E6;
+	color: #E0475B;
 }
 
 
 .navbar-brand {
 	text-decoration: none;
-	color: #E6E6E6;
+	color: #E0475B;
 }
 
 .navbar-brand:hover {
 	text-decoration: none;
 
-	color: #E6E6E6;
+	color: #E0475B;
+}
+
+.cartlink a {
+	color: #fff;
 }
 
 nav .collapse {
 	z-index: 5;
-	background-color:#5F4536;
+	background-color:#fff;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -75,7 +79,7 @@ nav .collapse {
 }
 
 .navbar-toggler span {
-	color: #E6E6E6;
+	color: #fff;
 }
 
 .banner {
@@ -111,8 +115,8 @@ nav .collapse {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #fff;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -123,9 +127,9 @@ nav .collapse {
     position: relative;
 	font-size: 4em;
 	border-radius: 50%;
-	background-color: #D8993A;
+	background-color: #E0475B;
 	padding: 35px;
-	color: #E6E6E6;
+	color: #fff;
 	transition: all 0.5s;
 }
 
@@ -138,16 +142,16 @@ nav .collapse {
     right: 10px;
     top: 10px;
     bottom: 10px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid #fff;
 }
 
 .parts span:hover {
-	background-color: #E6E6E6;
-	color: #D8993A;
+	background-color: #fff;
+	color: #E0475B;
 }
 
 .parts span:hover:after{
-    border: 1px solid #D8993A;
+    border: 1px solid #E0475B;
 
 }
 
@@ -156,6 +160,7 @@ nav .collapse {
 
 .category img {
 	border-radius: 10px;
+	border: 1px solid #E0475B;
 }
 
 .cat1 {
@@ -166,38 +171,39 @@ nav .collapse {
 	position: absolute;
 	border-radius: 0 0 0 10px;
 	bottom: 0;
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 }
 
 .cattext button {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #fff;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
 
 .cattext h5 {
-	color: #5F4536;
+	color: #192F01;
 }
 
 .cattext p {
-	color: #D8993A;
+	color: #E0475B;
 }
 
 
 .food h6 {
-	color: #D8993A;
+	color: #E0475B;
 }
 
 .food h1 {
-	color: #5F4536;
+	color: #192F01;
 }
 
 .food img {
+	border: 1px solid #E0475B;
 	border-radius: 10px;
 }
 
@@ -209,18 +215,31 @@ nav .collapse {
 	position: absolute;
 	border-radius: 10px 0 0 0;
 	top: 0;
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 }
 
-.deal {
 
+.deal {
+	position: relative;
 	height: 100vh;
 	width: 100%;
-
+	/*background-image: url('../images/banner1.jpg');*/
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+}
+
+.overlay {
+	position: absolute;
+	opacity: 0.5;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+  	right: 0;
+  	bottom: 0;
+	background-color: #000;
 }
 
 .deal .row {
@@ -255,8 +274,8 @@ nav .collapse {
 
 
 .input-group-append .input-group-text {
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 }
 
 .main {
@@ -281,7 +300,7 @@ nav .collapse {
 
 
 .mainsec ul li a {
-	color: #D8993A;
+	color: #E0475B;
 }
 
 .mainsec p{
@@ -316,8 +335,8 @@ nav .collapse {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #192F01;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -351,19 +370,19 @@ nav .collapse {
 }
 
 .fbtn {
-	background-color: #E6E6E6;
-	color: #D8993A;
+	background-color: #fff;
+	color: #E0475B;
 }
 
 .fbtn.active {
-  background-color: #D8993A;
-  color: #E6E6E6;
+  background-color: #E0475B;
+  color: #fff;
 }
 
 
 .icons i {
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 	padding: 10px;
 	border-radius: 50%;
 }
@@ -387,8 +406,8 @@ nav .collapse {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #192F01;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -400,7 +419,7 @@ nav .collapse {
 }
 
 .blogcat p {
-	border-bottom: 2px solid #E6E6E6;
+	border-bottom: 2px solid #fff;
 }
 
 
@@ -438,8 +457,8 @@ nav .collapse {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #192F01;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -465,24 +484,24 @@ nav .collapse {
 }
 
 table thead {
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 }
 
 .coupon {
-	border: 2px solid #E6E6E6;
+	border: 2px solid #fff;
 	
 }
 
 .total {
-	border-bottom: 1px solid #E6E6E6;
+	border-bottom: 1px solid #fff;
 }
 .couponbtn {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #5F4536;
+	background-color: #E0475B;
+	color: #192F01;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -534,8 +553,8 @@ table thead {
 	top: -30px;
 	outline: none;
 	padding: 10px 20px;
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 	font-size: 2em;
 }
 
@@ -546,13 +565,13 @@ table thead {
   	border-radius: 8px;
 	padding: 11px 11px;
 	outline: none;
-	border: 1px solid #D8993A;
+	border: 1px solid #E0475B;
 	width: 50px;
 	height: 44px;
 }
 
 .productnumber input[type=number]:focus {
-	border: 1px solid #D8993A;
+	border: 1px solid #E0475B;
 	outline: none;
 }
 .productnumber input[type=number]::-webkit-inner-spin-button,
@@ -585,8 +604,8 @@ table thead {
   text-align: center;
   vertical-align: middle;
   padding: 10px 10px;
-  background: #D8993A;
-  color: #E6E6E6;
+  background: #E0475B;
+  color: #fff;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -600,8 +619,8 @@ table thead {
 	border: none;
 	outline: none;
 	box-shadow: 0 0 0 transparent;
-	background-color: #D8993A;
-	color: #E6E6E6;
+	background-color: #E0475B;
+	color: #fff;
 	padding: 10px 40px;
 	border-radius: 10px;
 }
@@ -612,6 +631,36 @@ table thead {
 	box-shadow: 0 0 0 transparent;
 }
 
+
+/*product*/
+.banner_8 {
+	height: 100%;
+	width: 100%;
+	background-image: url('../images/banner1.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.banner_8 .container-fluid{
+	position: absolute;
+	top: 50%;
+}
+
+.viewdetail {
+	border: none;
+	outline: none;
+	box-shadow: 0 0 0 transparent;
+	background-color: #E0475B;
+	color: #fff;
+	padding: 10px 40px;
+	border-radius: 10px;
+}
+
+.viewdetail:focus {
+	outline: none;
+	border: none;
+	box-shadow: 0 0 0 transparent;
+}
 
 footer ul {
 	padding: 0;
@@ -629,4 +678,7 @@ footer ul li a:hover {
 	text-decoration: none;
 	color: black;
 }
+
+
+
 
