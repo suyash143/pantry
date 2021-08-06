@@ -68,13 +68,11 @@
     <div class="container-fluid">
       <div class="row">
           {% for item in category %}
-        <div class="col-md-4 cat1 my-3" style="display: flex;width: 100%;">
-          <div style="flex: 1;">
+        <div class="col-md-4 cat1 my-3">
               <img src="{{ item.image.url }}" alt="cart1" class="img-fluid">
               <div class="text-center px-5 pt-2">
                 <p><a href="{%url 'products' name=item.name%}">{{ item.name }}</a></p>
               </div>
-          </div>
         </div>
           {% endfor  %}
 
@@ -101,13 +99,11 @@
       </div>
       <div class="row">
           {% for item in product %}
-        <div class="col-md-3 my-3 food1" style="display: flex;width: 100%;">
-          <div style="flex: 1;">
+        <div class="col-md-3 my-3 food1">
             <img src="{{ item.image.url }}" alt="food1" class="img-fluid">
             <div class="text-center px-2 pt-2">
               <p>{{ item.name }}</p>
             </div>
-          </div>
         </div>
           {% endfor %}
 
