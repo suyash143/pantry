@@ -158,21 +158,16 @@ nav .collapse {
 
 /*categories*/
 
-.cat1 {
+.category img {
+	border-radius: 10px;
+	border: 1px solid #E0475B;
+}
 
+.cat1 {
 	position: relative;
 }
 
-.catimg {
-	border-radius: 10px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-}
-
-.catimg div {
+.cat1 div {
 	position: absolute;
 	border-radius: 0 0 0 10px;
 	bottom: 0;
@@ -216,17 +211,7 @@ nav .collapse {
 	position: relative;
 }
 
-
-.foodimg {
-	border-radius: 10px;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-}
-
-.foodimg div {
+.food1 div {
 	position: absolute;
 	border-radius: 10px 0 0 0;
 	top: 0;
