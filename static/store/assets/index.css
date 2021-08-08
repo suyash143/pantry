@@ -167,6 +167,11 @@ nav .collapse {
 	position: relative;
 }
 
+.cat1 img {
+	width: 100%;
+	height: 100%;
+}
+
 .cat1 div {
 	position: absolute;
 	border-radius: 0 0 0 10px;
