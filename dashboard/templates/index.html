@@ -98,11 +98,11 @@
         </div>
       </div>
       <div class="row">
-          {% for item in product %}
+          {% for product in products %}
         <div class="col-md-3 my-3 food1">
-            <img src="{{ item.image.url }}" alt="food1" class="img-fluid">
+            <img src="{{ product.image.url }}" alt="food1" class="img-fluid">
             <div class="text-center px-2 pt-2">
-              <p>{{ item.name }}</p>
+              <p>{{ product.name }}</p>
             </div>
         </div>
           {% endfor %}

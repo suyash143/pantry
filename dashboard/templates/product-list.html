@@ -21,7 +21,7 @@
               <h2>{{item.name}}</h2>
               <p>{{ item.description }}</p>
                 <p>Coins: {{ item.price }}</p><!-- \\ product details -->
-              <button class="viewdetail">Add to cart</button>  <!-- go to single-product -->
+              <button data-product="{{item.id}}" id="update-cart" data-action="add" class="btn btn-outline-secondary add-btn update-cart">ADD TO CART</button>  <!-- go to single-product -->
 
             </div>
           </div>      
