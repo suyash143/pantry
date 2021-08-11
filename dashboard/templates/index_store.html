@@ -188,7 +188,7 @@ function updateUserOrder(productId, action){
           <a class="nav-link" href="#">Contact</a>
         </li> -->
         <li class="nav-item p-3 cartlink" style="background-color: #E0475B;color:#fff">
-          <a class="nav-link" href="cart.html"><i class="fa fa-shopping-cart"></i> [{{cartItems}}]</a>
+          <a class="nav-link" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i> [{{cartItems}}]</a>
         </li>    
       </ul>
     </div>  

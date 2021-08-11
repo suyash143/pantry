@@ -19,6 +19,7 @@ import json
 
 from .models import Product, Order, OrderItem
 from .utils import cookieCart, cartData, guestOrder
+from django.db import transaction
 
 
 def dashboard(request):
@@ -63,6 +64,14 @@ def products(request, **kwargs):
     return render(request, 'product-list.html', {'name': name, 'items': items,'cartItems': cartItems})
 
 
+def cart(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    return render(request, 'cart.html', {'order': order,'items': items,'cartItems': cartItems})
+
+
 def updateItem(request):
     data = json.loads(request.body)
     productId = data['productId']
@@ -87,3 +96,32 @@ def updateItem(request):
         orderItem.delete()
 
     return JsonResponse('Item was added', safe=False)
+
+
+@transaction.atomic
+def checkout(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    total = order.get_cart_total
+    print(total)
+
+    print(data)
+    if request.method=='POST':
+        if request.user.is_authenticated:
+            customer = request.user.customer
+            order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        print(order)
+        order.transaction_id=datetime.datetime.now().timestamp()
+        order.complete = True
+        order.comment=request.POST.get('comment',None)
+        order.status='Active'
+        order.seat=request.POST.get('seat',None)
+
+        order.price=total
+        order.save()
+
+        return redirect('index')
+    return render(request,'checkout.html',{'order': order,'items': items,'cartItems': cartItems})

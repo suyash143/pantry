@@ -103,7 +103,11 @@
             <img src="{{ product.image.url }}" alt="food1" class="img-fluid">
             <div class="text-center px-2 pt-2">
               <p>{{ product.name }}</p>
+                <button data-product="{{product.id}}" id="update-cart" data-action="add" class="btn btn-outline-secondary add-btn update-cart">ADD TO CART</button>
             </div>
+        <div class="text-center px-2 pt-2">
+
+        </div>
         </div>
           {% endfor %}
 
@@ -128,6 +132,8 @@
           <div class="tdeal">
             <h1>{{ today_special.name }}</h1>
             <p>{{ today_special.price }}</p>
+            <button data-product="{{today_special.id}}" id="update-cart" data-action="add" class="btn btn-outline-secondary add-btn update-cart">ADD TO CART</button>
+
           </div>
         </div>
       </div>
