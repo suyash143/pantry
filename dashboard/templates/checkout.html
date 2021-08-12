@@ -3,14 +3,31 @@
 {% load static %}
 {% block content %}
 
-    <div class="row">
-		<div class="col-lg-6">
+    <!-- banner_1 -->
+  <div class="banner_6 mainsec">
+    <div class="container-fluid">  
+      <div class="row text-center">
+        <div class="col-md-12">
+          <ul class="nav d-flex justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Checkout</a>
+            </li>
+          </ul>
+          <p>Checkout</p>
         </div>
+      </div>
     </div>
- <section class="px-5 py-5">
+  </div>
+
+
+
+  <section class="px-5 py-5">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6">
+      <div class="row">      
+        <div class="col-md-4">
           <div>
             <div class="card-body coupon border-bottom-0">
               <h6>Cart Totals</h6>
@@ -20,87 +37,67 @@
               <p>Total <span class="float-right">Rs 140</span></p>
             </div>
             <div class="card-footer bg-transparent pt-4">
+            </div>
+          </div>    
+        </div>
+        <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Your Information</h6>
+              <form class="pt-3">
+                <div class="input-group mb-2">
+                  <input type="text" class="form-control" placeholder="Seat Number">
+                </div>
+                <div class="input-group mb-2">
+                  <textarea class="form-control" rows="4" placeholder="Anything for chef"></textarea>
+                </div>                  
+              </form>
+            </div>
+            <div class="card-footer bg-transparent pt-4">
               <button type="submit" class="couponbtn">Place an order</button>
             </div>
-          </div>
+          </div>    
         </div>
-          <div class="col-lg-6">
-              <form method="POST" id="form">
-                  {% csrf_token %}
-
-                      <textarea name="comment">Comment</textarea>
-                  <input type="text" name="seat" placeholder='seat NO or delivery place'>
-                  <input type="submit" >
-
-              </form>
+        <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Summary</h6>
+              <a href=""><button type="submit" class="back_cart"><i class="fa fa-angle-left"></i> Back to cart</button></a>
+              <div class="table-responsive text-center cart">
+                <table class="table">
+                 
+                  <tbody>
+                    <tr>
+                      <td style="background-image: url('images/product.jpg');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">Corn Cheese Sandwich(product Name)</p>
+                      </td>
+                      <td class="py-5">Rs 70</td>
+                      <td class="py-5">
+                        <p>x2</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="background-image: url('images/product.jpg');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">Corn Cheese Sandwich(product Name)</p>
+                      </td>
+                      <td class="py-5">Rs 70</td>
+                      <td class="py-5">
+                        <p>x2</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+              <p>Subtotal <span class="float-right">Rs 140</span></p>
+            </div>
+          </div>    
         </div>
       </div>
     </div>
-  </section>
-    <script >
-    var total = '{{order.get_cart_total}}'
-    {#var form = document.getElementById('form')#}
-	{#	form.addEventListener('submit', function(e){#}
-	{#    	e.preventDefault()#}
-	{#    	console.log('Form Submitted...')#}
-	{#    	document.getElementById('form-button').classList.add("hidden");#}
-	{#    	document.getElementById('payment-info').classList.remove("hidden");#}
-	{#    })#}
-	{#	/*#}
-	{#    document.getElementById('make-payment').addEventListener('click', function(e){#}
-    {##}
-	{#    })#}
-	{#	*/#}
-    {#function submitFormData(){#}
-	{#    	console.log('Payment button clicked')#}
-    {##}
-	{#    	var userFormData = {#}
-	{#			'name':null,#}
-	{#			'email':null,#}
-	{#			'total':total,#}
-	{#		}#}
-    {##}
-	{#		var shippingInfo = {#}
-	{#			'address':null,#}
-	{#			'city':null,#}
-	{#			'state':null,#}
-	{#			'zipcode':null,#}
-	{#		}#}
-    {##}
-	{#		if (shipping != 'False'){#}
-	{#    		shippingInfo.address = form.address.value#}
-	{#	    	shippingInfo.city = form.city.value#}
-	{#	    	shippingInfo.state = form.state.value#}
-	{#	    	shippingInfo.zipcode = form.zipcode.value#}
-	{#    	}#}
-    {##}
-	{#    	if (user == 'AnonymousUser'){#}
-	{#    		userFormData.name = form.name.value#}
-	{#    		userFormData.email = form.email.value#}
-	{#    	}#}
-    {##}
-	{#    	console.log('Shipping Info:', shippingInfo)#}
-	{#    	console.log('User Info:', userFormData)#}
-    {##}
-	{#    	var url = "/checkout/"#}
-	{#    	fetch(url, {#}
-	{#    		method:'POST',#}
-	{#    		headers:{#}
-	{#    			'Content-Type':'application/json',#}
-	{#    			'X-CSRFToken':csrftoken,#}
-	{#    		},#}
-	{#    		body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),#}
-    {##}
-	{#    	})#}
-	{#    	.then((response) => response.json())#}
-	{#    	.then((data) => {#}
-	{#			  console.log('Success:', data);#}
-	{#			  alert('Transaction completed');#}
-	{#			  cart={}#}
-	{#			  document.cookie='cart='+JSON.stringify(cart)+';domain=;path=/'#}
-	{#			  window.location.href = "{% url 'index' %}"#}
-    {##}
-	{#			})#}
-	{#    }#}
-    </script>
+  </section>  
 {% endblock content %}
