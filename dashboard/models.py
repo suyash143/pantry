@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save,post_delete
+from django.dispatch import receiver
 
 
 # Create your models here.
@@ -9,10 +11,18 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, null=True,blank=True)
     email = models.CharField(max_length=200, null=True,blank=True)
     is_money_manager=models.BooleanField(default=False,blank=True,null=True)
-    coin=models.DecimalField(max_digits=5,blank=True,null=True,default=0, decimal_places=1)
+    coin_spent=models.DecimalField(max_digits=5,blank=True,null=True,default=0, decimal_places=1)
 
-    def __str__(self):
-        return self.name
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Customer.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.customer.save()
 
 
 class Product(models.Model):
@@ -63,6 +73,7 @@ class Order(models.Model):
     order_date=models.DateTimeField(auto_now_add=True,null=True,blank=True)
     expected_delivery=models.TimeField(blank=True,null=True)
     accepted=models.BooleanField(default=False,null=True,blank=True)
+    cancelled=models.BooleanField(default=False,null=True,blank=True)
     delivered=models.BooleanField(default=False,null=True,blank=True)
     status=models.CharField(max_length=200,null=True,blank=True)
     comment=models.TextField(blank=True,null=True)
@@ -81,6 +92,11 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
         return total
+
+    @property
+    def get_order_items(self):
+        orderitems = self.orderitem_set.all()
+        return orderitems
 
 
 class OrderItem(models.Model):

@@ -3,104 +3,75 @@
 {% load static %}
 {% block content %}
 
-    <div class="row">
-		<div class="col-lg-6">
-        </div>
-    </div>
- <section class="px-5 py-5">
+  <section class="px-5 py-5">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6">
+          <div class="col-md-4">
           <div>
             <div class="card-body coupon border-bottom-0">
-              <h6>Cart Totals</h6>
-              <p>Subtotal <span class="float-right">Rs 140</span></p>
-              <p>Delivery <span class="float-right">Rs 0</span></p>
-              <p class="total pb-3">Discount <span class="float-right">Rs 0</span></p>
-              <p>Total <span class="float-right">Rs 140</span></p>
+              <h6>Summary</h6>
+              <a class="back_cart" href="{% url 'cart' %}"><i class="fa fa-angle-left"></i> Back to cart</a>
+              <div class="table-responsive text-center cart">
+                <table class="table">
+
+                  <tbody>
+                  {% for item in items %}
+                    <tr>
+                      <td style="background-image: url('{{ item.product.imageURL }}');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">{{ item.product.name}}</p>
+                      </td>
+                      <td class="py-5">Rs {{ item.product.price}}</td>
+                      <td class="py-5">
+                        <p>X {{item.quantity}}</p>
+                      </td>
+                    </tr>
+                  {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+
             </div>
             <div class="card-footer bg-transparent pt-4">
-              <button type="submit" class="couponbtn">Place an order</button>
+              <p>Subtotal <span class="float-right">Rs {{ order.get_cart_total }}</span></p>
             </div>
           </div>
         </div>
-          <div class="col-lg-6">
-              <form method="POST" id="form">
+
+        <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Your Information</h6>
+              <form class="pt-3" method="POST">
                   {% csrf_token %}
-
-                      <textarea name="comment">Comment</textarea>
-                  <input type="text" name="seat" placeholder='seat NO or delivery place'>
-                  <input type="submit" >
-
+                <div class="input-group mb-2">
+                  <input type="text" class="form-control" name="seat" placeholder="Seat Number">
+                </div>
+                <div class="input-group mb-2">
+                  <textarea class="form-control" rows="4" name="comment" placeholder="Anything for chef"></textarea>
+                </div>
+                  <input type="submit" class="couponbtn" value="Place Order">
               </form>
+            </div>
+
+          </div>
         </div>
+      <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Cart Totals</h6>
+              <p>Subtotal <span class="float-right">{{ order.get_cart_total }}</span></p>
+              <p>Delivery <span class="float-right">Rs 0</span></p>
+              <p>Total <span class="float-right">{{ order.get_cart_total }}</span></p>
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-    <script >
-    var total = '{{order.get_cart_total}}'
-    {#var form = document.getElementById('form')#}
-	{#	form.addEventListener('submit', function(e){#}
-	{#    	e.preventDefault()#}
-	{#    	console.log('Form Submitted...')#}
-	{#    	document.getElementById('form-button').classList.add("hidden");#}
-	{#    	document.getElementById('payment-info').classList.remove("hidden");#}
-	{#    })#}
-	{#	/*#}
-	{#    document.getElementById('make-payment').addEventListener('click', function(e){#}
-    {##}
-	{#    })#}
-	{#	*/#}
-    {#function submitFormData(){#}
-	{#    	console.log('Payment button clicked')#}
-    {##}
-	{#    	var userFormData = {#}
-	{#			'name':null,#}
-	{#			'email':null,#}
-	{#			'total':total,#}
-	{#		}#}
-    {##}
-	{#		var shippingInfo = {#}
-	{#			'address':null,#}
-	{#			'city':null,#}
-	{#			'state':null,#}
-	{#			'zipcode':null,#}
-	{#		}#}
-    {##}
-	{#		if (shipping != 'False'){#}
-	{#    		shippingInfo.address = form.address.value#}
-	{#	    	shippingInfo.city = form.city.value#}
-	{#	    	shippingInfo.state = form.state.value#}
-	{#	    	shippingInfo.zipcode = form.zipcode.value#}
-	{#    	}#}
-    {##}
-	{#    	if (user == 'AnonymousUser'){#}
-	{#    		userFormData.name = form.name.value#}
-	{#    		userFormData.email = form.email.value#}
-	{#    	}#}
-    {##}
-	{#    	console.log('Shipping Info:', shippingInfo)#}
-	{#    	console.log('User Info:', userFormData)#}
-    {##}
-	{#    	var url = "/checkout/"#}
-	{#    	fetch(url, {#}
-	{#    		method:'POST',#}
-	{#    		headers:{#}
-	{#    			'Content-Type':'application/json',#}
-	{#    			'X-CSRFToken':csrftoken,#}
-	{#    		},#}
-	{#    		body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),#}
-    {##}
-	{#    	})#}
-	{#    	.then((response) => response.json())#}
-	{#    	.then((data) => {#}
-	{#			  console.log('Success:', data);#}
-	{#			  alert('Transaction completed');#}
-	{#			  cart={}#}
-	{#			  document.cookie='cart='+JSON.stringify(cart)+';domain=;path=/'#}
-	{#			  window.location.href = "{% url 'index' %}"#}
-    {##}
-	{#			})#}
-	{#    }#}
-    </script>
+    <hr>
 {% endblock content %}
