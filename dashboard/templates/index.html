@@ -39,22 +39,22 @@
   <section class="p-5 parts">
     <div class="container-fluid px-5 py-3">
       <div class="row">
-        <div class="col-md-3 px-5 text-center my-3">
+        <div class="col-md-3 text-center my-3">
           <span class="material-icons">menu_book</span>
           <h6 class="pt-3">SELECT FOOD</h6>
           <p>Order when needed</p>
         </div>
-        <div class="col-md-3 px-5 text-center my-3">
+        <div class="col-md-3 text-center my-3">
           <span class="material-icons">delivery_dining</span>
           <h6 class="pt-3">PLACE ORDER</h6>
           <p>Order when needed</p>
         </div>
-        <div class="col-md-3 px-5 text-center my-3">
+        <div class="col-md-3 text-center my-3">
           <span class="material-icons">timer</span>
           <h6 class="pt-3">WAIT</h6>
           <p>Order when needed</p>
         </div>
-        <div class="col-md-3 px-5 text-center my-3">
+        <div class="col-md-3 text-center my-3">
           <span class="material-icons">nightlife</span>
           <h6 class="pt-3">ENJOY</h6>
           <p>Order when needed</p>
@@ -69,11 +69,26 @@
       <div class="row">
           {% for item in category %}
         <div class="col-md-4 cat1 my-3">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-3">
+              <img src="{{ item.image.url }}" alt="" class="img-fluid">
+            </div>
+            <div class="card-body py-2">
+              <p>{{ item.name }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <div class="pb-1">
+                <a href="{%url 'products' name=item.name%}"><button class="aboutbtn">View</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+<!--         <div class="col-md-4 cat1 my-3">
               <img src="{{ item.image.url }}" alt="cart1" class="img-fluid">
               <div class="text-center px-5 pt-2">
                 <p><a href="{%url 'products' name=item.name%}">{{ item.name }}</a></p>
               </div>
-        </div>
+        </div> -->
           {% endfor  %}
 
 
@@ -100,6 +115,21 @@
       <div class="row">
           {% for product in products %}
         <div class="col-md-3 my-3 food1">
+          <div class="card text-center">
+            <div class="card-header bg-transparent border-bottom-0 p-3">
+              <img src="{{ product.image.url }}" alt="food1" class="img-fluid">
+            </div>
+            <div class="card-body py-2">
+              <p>{{ product.name }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-top-0 py-2">
+              <div class="pb-1">
+                <a href="#"><button class="aboutbtn">View</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+<!--         <div class="col-md-3 my-3 food1">
             <img src="{{ product.image.url }}" alt="food1" class="img-fluid">
             <div class="text-center px-2 pt-2">
               <p>{{ product.name }}</p>
@@ -108,7 +138,7 @@
         <div class="text-center px-2 pt-2">
 
         </div>
-        </div>
+        </div> -->
           {% endfor %}
 
       </div>
@@ -118,7 +148,26 @@
 
 
   <!-- deal -->
-  <section>
+<section>
+    <div class="container-fluid deal" style="background-image: url('images/banner1.jpg');">
+      <div class="overlay">
+        
+      </div>
+      <div class="row d-flex justify-content-end px-5">
+        <div class="col-md-12 text-white" style="position: absolute;top: 40%;text-align: center;">
+          <h6>Best price for today</h6>
+          <h1>Today's Special</h1>
+          <p>{{ today_special.description }}</p>
+
+          <div class="tdeal">
+            <h1>{{ today_special.name }}</h1>
+            <p>{{ today_special.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--   <section>
     <div class="container-fluid deal" style="background-image: url('{{ today_special.image.url }}');">
       <div class="overlay">
         
@@ -138,7 +187,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
