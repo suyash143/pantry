@@ -1,0 +1,255 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+        <div class="row">
+        <div class="col">
+          <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="text-white mb-0">Live Orders</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush" >
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="sort" data-sort="name">Name</th>
+                    <th scope="col" class="sort" data-sort="budget">Amount</th>
+                    <th scope="col" class="sort" data-sort="status">Status</th>
+                    <th scope="col">Dishes</th>
+                    <th scope="col" class="sort" data-sort="completion">Date/Time</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                {% for order in orders %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <a href="#" class="avatar rounded-circle mr-3">
+{#                          <img  src="../assets/img/theme/bootstrap.jpg">#}
+                        </a>
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{ order.customer.name }}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="budget">
+                      {{ order.price }}
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">{{ order.status }}</span>
+                      </span>
+                    </td>
+                    <td>
+                      <div class="avatar-group">
+                          {% for item in order.get_order_items %}
+                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="{{ item.quantity }}">
+                          <img  src="{{ item.product.imageURL  }}" >
+                        </a>
+                              {% endfor %}
+
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{ order.order_date }}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-right">
+                      <button onClick="document.getElementById('{{ order.pk }}').style.display='block'">Show</button>
+                        <button onClick="document.getElementById('{{ order.pk }}').style.display='None'">Hide</button>
+                    </td>
+
+                  </tr>
+
+                <tr  id="{{ order.pk }}" style="display:none">
+
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+
+                        Total Products - {{ order.get_cart_items }}
+                      </div>
+
+                </div>
+                </td>
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+                        <ul>
+                            {% for item in order.get_order_items %}
+
+                            <li>
+                        <div class="avatar avatar-sm rounded-circle">
+                          <p><img  src="{{ item.product.imageURL  }}" ></p>
+                        </div><span>&nbsp; - &nbsp; {{ item.product.name }} &nbsp;X &nbsp;{{ item.quantity }} &nbsp;= &nbsp; {{item.get_total|floatformat:2}}</span>
+                               <p></p></li>
+
+                              {% endfor %}</ul>
+
+
+                      </div>
+
+                </div>
+                </td>
+
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+
+                        Total Amount - {{ order.get_cart_total }}
+                      </div>
+
+                </div>
+                </td>
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+                    <a href="{% url 'update_order' 'accept' order.pk %}" class="btn btn-sm btn-neutral" >Accept order</a>
+                          <a href="{% url 'update_order' 'cancel' order.pk %}" class="btn btn-sm btn-warning" >Cancel order</a>
+
+                      </div>
+
+                </div>
+                </td>
+
+                  </tr>
+                {% endfor  %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col">
+          <div class="card bg-default shadow">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="text-white mb-0">Accepted Orders</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-dark table-flush" >
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="sort" data-sort="name">Name</th>
+                    <th scope="col" class="sort" data-sort="budget">Amount</th>
+                    <th scope="col" class="sort" data-sort="status">Status</th>
+                    <th scope="col">Dishes</th>
+                    <th scope="col" class="sort" data-sort="completion">Date/Time</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list">
+                {% for order in accepted %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <a href="#" class="avatar rounded-circle mr-3">
+{#                          <img  src="../assets/img/theme/bootstrap.jpg">#}
+                        </a>
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{ order.customer.name }}</span>
+                        </div>
+                      </div>
+                    </th>
+                    <td class="budget">
+                      {{ order.price }}
+                    </td>
+                    <td>
+                      <span class="badge badge-dot mr-4">
+                        <i class="bg-warning"></i>
+                        <span class="status">{{ order.status }}</span>
+                      </span>
+                    </td>
+                    <td>
+                      <div class="avatar-group">
+                          {% for item in order.get_order_items %}
+                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="{{ item.quantity }}">
+                          <img  src="{{ item.product.imageURL  }}" >
+                        </a>
+                              {% endfor %}
+
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <div class="media-body">
+                          <span class="name mb-0 text-sm">{{ order.order_date }}</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="text-right">
+                      <button onClick="document.getElementById('{{ order.pk }}').style.display='block'">Show</button>
+                        <button onClick="document.getElementById('{{ order.pk }}').style.display='None'">Hide</button>
+                    </td>
+
+                  </tr>
+
+                <tr  id="{{ order.pk }}" style="display:none">
+
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+
+                        Total Products - {{ order.get_cart_items }}
+                      </div>
+
+                </div>
+                </td>
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+                        <ul>
+                            {% for item in order.get_order_items %}
+
+                            <li>
+                        <div class="avatar avatar-sm rounded-circle">
+                          <p><img  src="{{ item.product.imageURL  }}" ></p>
+                        </div><span>&nbsp; - &nbsp; {{ item.product.name }} &nbsp;X &nbsp;{{ item.quantity }} &nbsp;= &nbsp; {{item.get_total|floatformat:2}}</span>
+                               <p></p></li>
+
+                              {% endfor %}</ul>
+
+
+                      </div>
+
+                </div>
+                </td>
+
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+
+                        Total Amount - {{ order.get_cart_total }}
+                      </div>
+
+                </div>
+                </td>
+                <td  colspan="6" >
+                    <div style="text-align: center;">
+                      <div class="media align-items-center" >
+                    <a href="{% url 'update_order' 'delivered' order.pk %}" class="btn btn-sm btn-neutral" >Press to confirm order delivery</a>
+
+                      </div>
+
+                </div>
+                </td>
+
+                  </tr>
+                {% endfor  %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock content %}
