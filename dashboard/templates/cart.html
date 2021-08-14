@@ -39,12 +39,19 @@
                     <p class="py-0 my-0"></p>
                   </td>
                   <td class="py-5">{{ item.product.price }}</td>
-                  <td class="d-flex justify-content-center py-5">
+		  <td class="d-flex justify-content-center py-5">
+                    <form class="productnumber">
+                      <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><i class="fa fa-minus"></i></div>
+                      <input type="number" id="number" value="0" />
+                      <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><i class="fa fa-plus"></i></div>
+                    </form>
+                  </td>
+<!--                   <td class="d-flex justify-content-center py-5">
                     {{item.quantity}}
                     <img style='height:15px' data-product="{{item.product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/images/arrow-up.png' %}">
 
                     <img style='height:15px' data-product="{{item.product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/images/arrow-down.png' %}">
-                  </td>
+                  </td> -->
                   <td class="py-5">Rs {{item.get_total|floatformat:2}}</td>
                 </tr>
                 {% endfor %}
