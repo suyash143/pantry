@@ -41,9 +41,9 @@
                   <td class="py-5">{{ item.product.price }}</td>
 		  <td class="d-flex justify-content-center py-5">
                     <form class="productnumber">
-                      <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><i class="fa fa-minus"></i></div>
-                      <input type="number" id="number" value="0" />
-                      <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><i class="fa fa-plus"></i></div>
+                      <div class="value-button update-cart chg-quantity" data-product="{{item.product.id}}" data-action="remove" ><i class="fa fa-minus"></i></div>
+                      <input type="number" id="number" style="text-align:center" value="{{ item.quantity }}" readonly />
+                      <div class="value-button update-cart chg-quantity" data-product="{{item.product.id}}" data-action="add"><i class="fa fa-plus"></i></div>
                     </form>
                   </td>
 <!--                   <td class="d-flex justify-content-center py-5">
@@ -94,7 +94,7 @@
               <p>Total <span class="float-right">Rs {{order.get_cart_total|floatformat:2}}</span></p>
             </div>
             <div class="card-footer bg-transparent pt-4">
-              <a href="{% url 'checkout' %}">Checkout</a>
+              <a  href="{% url 'checkout' %}">Checkout</a>
             </div>
           </div>
         </div>

@@ -2,6 +2,243 @@
 {% extends 'index_store.html' %}
 {% load static %}
 {% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <a href="#active" class="input-group-text">Active</a>
+            <a href="#cancel" class="input-group-text">Cancelled</a>
+            <a href="#all" class="input-group-text">All Previous Orders</a>
+        </div>
+    </div>
+
+{% if accepted_order %}
+{% for order in active_order %}
+
+
+  <section class="px-5 py-5" id="active">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5">
+
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6> Active Orders Summary</h6>
+
+              <div class="table-responsive text-center cart">
+                <table class="table">
+
+                  <tbody>
+                  {% for item in order.get_order_items %}
+                    <tr>
+                      <td style="background-image: url('{{ item.product.imageURL }}');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">{{ item.product.name}}</p>
+                      </td>
+                      <td class="py-5">Rs {{ item.product.price}}</td>
+                      <td class="py-5">
+                        <p>X {{item.quantity}}</p>
+                      </td>
+                    </tr>
+                  {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+
+              <p>Subtotal <span class="float-right">Rs {{ order.get_cart_total }}</span></p>
+
+            </div>
+          </div>
+        </div>
+
+
+      <div class="col-md-5">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Cart Totals</h6>
+              <p>Subtotal <span class="float-right">{{ order.get_cart_total }}</span></p>
+              <p>Delivery <span class="float-right">Rs 0</span></p>
+              <p>Total <span class="float-right">{{ order.get_cart_total }}</span></p>
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+            </div>
+          </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </section>
+    <hr>
+    {% endfor %}
+    {% endif %}
+
+
+    {% if cancelled_order %}
+{% for order in cancelled_order %}
+
+
+  <section class="px-5 py-5" id="cancel">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5">
+
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6> Cancelled Orders Summary</h6>
+
+              <div class="table-responsive text-center cart">
+                <table class="table">
+
+                  <tbody>
+                  {% for item in order.get_order_items %}
+                    <tr>
+                      <td style="background-image: url('{{ item.product.imageURL }}');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">{{ item.product.name}}</p>
+                      </td>
+                      <td class="py-5">Rs {{ item.product.price}}</td>
+                      <td class="py-5">
+                        <p>X {{item.quantity}}</p>
+                      </td>
+                    </tr>
+                  {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+
+              <p>Subtotal <span class="float-right">Rs {{ order.get_cart_total }}</span></p>
+
+            </div>
+          </div>
+        </div>
+
+
+      <div class="col-md-5">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Cart Totals</h6>
+              <p>Subtotal <span class="float-right">{{ order.get_cart_total }}</span></p>
+              <p>Delivery <span class="float-right">Rs 0</span></p>
+              <p>Total <span class="float-right">{{ order.get_cart_total }}</span></p>
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+            </div>
+          </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </section>
+    <hr>
+    {% endfor %}
+    {% endif %}
+
+
+
+    {% if all_orders %}
+{% for order in all_orders %}
+
+
+  <section class="px-5 py-5" id="all">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+                <h6> All Orders Summary</h6>
+              <h6>Details</h6>
+                <p>Order ID - {{ order.pk }} </p>
+               <p>Status - {{ order.status }} </p>
+              <p>Delivery Date - {{ order.delivery_time }} </p>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      <div class="col-md-4">
+          <div>
+            <div class="card-body coupon border-bottom-0">
+              <h6>Cart Totals</h6>
+              <p>Subtotal <span class="float-right">{{ order.get_cart_total }}</span></p>
+              <p>Delivery <span class="float-right">Rs 0</span></p>
+              <p>Total <span class="float-right">{{ order.get_cart_total }}</span></p>
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+            </div>
+          </div>
+      </div>
+          <div class="col-md-4">
+
+          <div>
+            <div class="card-body coupon border-bottom-0">
+
+
+              <div class="table-responsive text-center cart">
+                <table class="table">
+
+                  <tbody>
+                  {% for item in order.get_order_items %}
+                    <tr>
+                      <td style="background-image: url('{{ item.product.imageURL }}');background-repeat: no-repeat;background-position: center;background-size: contain;" colspan="2" class="p-5"></td>
+                      <td class="py-5">
+                        <p class="py-0 my-0">{{ item.product.name}}</p>
+                      </td>
+                      <td class="py-5">Rs {{ item.product.price}}</td>
+                      <td class="py-5">
+                        <p>X {{item.quantity}}</p>
+                      </td>
+                    </tr>
+                  {% endfor %}
+
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+            <div class="card-footer bg-transparent pt-4">
+
+              <p>Subtotal <span class="float-right">Rs {{ order.get_cart_total }}</span></p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+          </div>
+        </div>
+
+
+
+
+  </section>
+    <hr>
+    {% endfor %}
+    {% endif %}
+
+
 
 
  {% endblock content %}
