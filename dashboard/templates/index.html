@@ -124,7 +124,8 @@
             </div>
             <div class="card-footer bg-transparent border-top-0 py-2">
               <div class="pb-1">
-                <a href="#"><button class="aboutbtn">View</button></a>
+
+                  <button data-product="{{product.id}}" id="update-cart" data-action="add" class="btn btn-outline-secondary aboutbtn add-btn update-cart">ADD TO CART</button>
               </div>
             </div>
           </div>
@@ -149,7 +150,7 @@
 
   <!-- deal -->
 <section>
-    <div class="container-fluid deal" style="background-image: url('images/banner1.jpg');">
+    <div class="container-fluid deal" style="background-image: url('{{ today_special.image.url }}');">
       <div class="overlay">
         
       </div>
@@ -211,6 +212,20 @@
       </div>
     </div>
   </section>
+    {% if active_order %}
+    <section class="fixed-bottom bottom_bar py-2" style="z-index: 999;width: 50%;background-color: #E0475B;border-radius: 30px;
+	left: 50%;
+	bottom: 0px;
+  transform: translate(-50%, 0%);
+  /margin: 0 auto;/
+  border-radius: 10px;
+  color: white;">
+    <div class="container-fluid  pt-1">
+      <a href="{}" class="float-left pl-5 "><p>You have <i class="fa fa-shopping-cart"></i>{{ active_order.count }} Update about your order</p></a>
+
+    </div>
+  </section>
+    {% endif %}
 
  {% endblock content %}
 

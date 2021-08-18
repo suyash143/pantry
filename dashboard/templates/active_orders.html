@@ -54,10 +54,11 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">{{ order.order_date }}</span>
+                          <span class="name mb-0 text-sm">{{ order.date_ordered }}</span>
                         </div>
                       </div>
                     </td>
+
                     <td class="text-right">
                       <button onClick="document.getElementById('{{ order.pk }}').style.display='block'">Show</button>
                         <button onClick="document.getElementById('{{ order.pk }}').style.display='None'">Hide</button>
@@ -105,16 +106,22 @@
 
                 </div>
                 </td>
-                <td  colspan="6" >
-                    <div style="text-align: center;">
-                      <div class="media align-items-center" >
-                    <a href="{% url 'update_order' 'accept' order.pk %}" class="btn btn-sm btn-neutral" >Accept order</a>
-                          <a href="{% url 'update_order' 'cancel' order.pk %}" class="btn btn-sm btn-warning" >Cancel order</a>
+                <td>
+                      <div class="d-flex align-items-center">
+                        <div class="media-body">
+                            <P>Expected Delivery time</P>
+                            <form method="POST" id="time_form">
+                                {% csrf_token %}
 
+                                <span class="name mb-0 text-sm"><input type="time" name="delivery_time"></span>
+                                <input type="number" name="id" value="{{ order.pk }}" hidden>
+                                <input type="submit" class="btn btn-sm btn-neutral" name="accept" value="Accept order">
+                                <input type="submit" name="cancel" class="btn btn-sm btn-warning" value="Cancel order">
+                            </form>
+                        </div>
                       </div>
+                    </td>
 
-                </div>
-                </td>
 
                   </tr>
                 {% endfor  %}
@@ -181,7 +188,7 @@
                     <td>
                       <div class="d-flex align-items-center">
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">{{ order.order_date }}</span>
+                          <span class="name mb-0 text-sm">{{ order.date_ordered }}</span>
                         </div>
                       </div>
                     </td>
@@ -253,3 +260,5 @@
       </div>
 
 {% endblock content %}
+
+
