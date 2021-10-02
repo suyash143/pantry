@@ -1,6 +1,6 @@
 {% extends 'index_store.html' %}
 {% load static %}
-{% block content %}
+    {% block content %}
 
   <!-- carousel -->
   <div class="banner">
@@ -8,15 +8,20 @@
 
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{% static 'store/images/banner1.jpg' %}" alt="banner1">
+          <img src="{% static 'store/Images/banner1.jpg' %}" alt="banner1" style="object-fit: cover;
+  	object-position: 100% 0;  //move image position in x direction.
+  	object-position: 0 100%; //move image position in y direction.">
           <div class="carousel-caption">
             <h3>We Serve Fresh Food</h3>
             <p>Have a great food!</p>
             <button>Store</button>
           </div>
+          </div>
         </div>
         <div class="carousel-item">
-          <img src="{% static 'store/images/banner1.jpg' %}" alt="banner2">
+          <img src="{% static 'store/Images/banner2.jpg' %}" alt="banner2" style="object-fit: cover;
+  	object-position: 100% 0;  //move image position in x direction.
+  	object-position: 0 100%; //move image position in y direction.">
           <div class="carousel-caption">
             <h3>We Serve Fresh Foodssss</h3>
             <p>Have a great food!</p>
@@ -24,7 +29,9 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="{% static 'store/images/banner1.jpg' %}" alt="banner3">
+          <img src="{% static 'store/Images/banner3.jpg' %}" alt="banner3" style="object-fit: cover;
+  	object-position: 100% 0;  //move image position in x direction.
+  	object-position: 0 100%; //move image position in y direction.">
           <div class="carousel-caption">
             <h3>We Serve Fresh Foodmmm</h3>
             <p>Have a great food!</p>
